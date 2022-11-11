@@ -1,0 +1,1 @@
+select owner.owner_id, owner.owner_name, count(category.category_id) as different_category_count from article, category, category_article_mapping map, owner where owner.owner_id = article.owner_id and category.category_id = map.category_id and article.article_id = map.article_id GROUP BY map.category_id, owner.owner_id ORDER BY different_category_count desc;
